@@ -1,0 +1,16 @@
+<h1>つぶやき作成</h1>
+
+<% form_tag({:action => 'create'}, :multipart => true) do %>
+
+  parent_id: <%= text_field("tweet","parent_id") %> <br/>
+  group_id: <%= text_field("tweet","group_id") %> <br/>
+  user_id: <%= text_field("tweet","user_id") %> <br/>
+  tweet: <%= text_area("tweet","tweet") %> <br/>      
+  tweet_lat: <%= text_field("tweet","tweet_lat") %> <br/>
+  tweet_lon: <%= text_field("tweet","tweet_lon") %> <br/>
+  picture_path: <%= file_field("tweet","picture") %> <br/>
+      
+  <%= submit_tag("upload") %>  
+<% end %>
+
+<%= link_to 'つぶやき一覧', tweets_path %>

@@ -1,0 +1,41 @@
+<h1>New map</h1>
+
+<% form_for(@map) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :group_id %><br />
+    <%= f.text_field :group_id %>
+  </p>
+  <p>
+    <%= f.label :pos_title %><br />
+    <%= f.text_field :pos_title %>
+  </p>
+  <p>
+    <%= f.label :pos_explain %><br />
+    <%= f.text_area :pos_explain %>
+  </p>
+  <p>
+    <%= f.label :pos_kind %><br />
+    <%= f.text_field :pos_kind %>
+  </p>
+  <p>
+    <%= f.label :pos_lat %><br />
+    <%= f.text_field :pos_lat %>
+  </p>
+  <p>
+    <%= f.label :pos_lon %><br />
+    <%= f.text_field :pos_lon %>
+  </p>
+  <p>
+    <%= f.label :picture_path %><br />
+    <%= f.text_field :picture_path %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Map一覧', maps_path %><br/>
+<%= link_to 'グループ一覧',:controller => 'groups'%>
+

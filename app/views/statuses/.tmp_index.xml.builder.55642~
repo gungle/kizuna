@@ -1,0 +1,9 @@
+xml.statuses(:type => "array") do
+  @statuses.each do |status|
+    xml.status do
+	  xml.id(status.id, :type => "integer")
+	  xml.now_lat(status.now_lat, :type => "float")
+	  xml.full_name(status.full_name)
+    end
+  end
+end

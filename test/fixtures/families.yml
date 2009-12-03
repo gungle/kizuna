@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  group_id: 1
+  family_name: MyString
+  user_id: 1
+  address: MyString
+  tel: MyString
+  fax: MyString
+  home_lat: 1.5
+  home_lon: 1.5
+  icon_path: MyString
+
+two:
+  group_id: 1
+  family_name: MyString
+  user_id: 1
+  address: MyString
+  tel: MyString
+  fax: MyString
+  home_lat: 1.5
+  home_lon: 1.5
+  icon_path: MyString

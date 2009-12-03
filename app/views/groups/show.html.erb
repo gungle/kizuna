@@ -1,0 +1,18 @@
+<p>
+  <b>Group name:</b>
+  <%=h @group.group_name %>
+</p>
+
+<p>
+  <b>Default lat:</b>
+  <%=h @group.default_lat %>
+</p>
+
+<p>
+  <b>Default lon:</b>
+  <%=h @group.default_lon %>
+</p>
+
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>

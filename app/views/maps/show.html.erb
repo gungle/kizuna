@@ -1,0 +1,38 @@
+<p>
+  <b>Group:</b>
+  <%=h @map.group_id %>
+</p>
+
+<p>
+  <b>Pos title:</b>
+  <%=h @map.pos_title %>
+</p>
+
+<p>
+  <b>Pos explain:</b>
+  <%=h @map.pos_explain %>
+</p>
+
+<p>
+  <b>Pos kind:</b>
+  <%=h @map.pos_kind %>
+</p>
+
+<p>
+  <b>Pos lat:</b>
+  <%=h @map.pos_lat %>
+</p>
+
+<p>
+  <b>Pos lon:</b>
+  <%=h @map.pos_lon %>
+</p>
+
+<p>
+  <b>Picture path:</b>
+  <%=h @map.picture_path %>
+</p>
+
+
+<%= link_to 'Edit', edit_map_path(@map) %> |
+<%= link_to 'Back', maps_path %>

@@ -1,0 +1,48 @@
+<p>
+  <b>Group:</b>
+  <%=h @family.group_id %>
+</p>
+
+<p>
+  <b>Family name:</b>
+  <%=h @family.family_name %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @family.user_id %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @family.address %>
+</p>
+
+<p>
+  <b>Tel:</b>
+  <%=h @family.tel %>
+</p>
+
+<p>
+  <b>Fax:</b>
+  <%=h @family.fax %>
+</p>
+
+<p>
+  <b>Home lat:</b>
+  <%=h @family.home_lat %>
+</p>
+
+<p>
+  <b>Home lon:</b>
+  <%=h @family.home_lon %>
+</p>
+
+<p>
+  <b>Icon path:</b>
+  <%=h @family.icon_path %>
+</p>
+
+
+<%= link_to 'Edit', edit_family_path(@family) %> |
+<%= link_to 'Back', families_path %>

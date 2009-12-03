@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  status: 1
+  position: 1
+  note: MyText
+  now_lat: 1.5
+  now_lon: 1.5
+
+two:
+  user_id: 1
+  status: 1
+  position: 1
+  note: MyText
+  now_lat: 1.5
+  now_lon: 1.5

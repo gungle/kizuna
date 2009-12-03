@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  parent_id: 1
+  user_id: 1
+  tweet: MyText
+  tweet_lat: 1.5
+  tweet_lon: 1.5
+  picture_path: MyString
+
+two:
+  parent_id: 1
+  user_id: 1
+  tweet: MyText
+  tweet_lat: 1.5
+  tweet_lon: 1.5
+  picture_path: MyString

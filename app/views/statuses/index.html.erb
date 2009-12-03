@@ -1,0 +1,33 @@
+<h1>ステータス</h1>
+
+<table border="1">
+  <tr>
+    <th>Status ID</th>
+    <th>User ID</th>	
+    <th>Status</th>
+    <th>Position</th>
+    <th>Note</th>
+    <th>Now lat</th>
+    <th>Now lon</th>
+  </tr>
+
+<% for status in @statuses %>
+  <tr>
+    <td><%=h status.id %></td>
+    <td><%=h status.user_id %></td>
+    <td><%=h status.status %></td>
+    <td><%=h status.position %></td>
+    <td><%=h status.note %></td>
+    <td><%=h status.now_lat %></td>
+    <td><%=h status.now_lon %></td>
+    <td><%= link_to 'Show', status %></td>
+    <td><%= link_to 'Edit', edit_status_path(status) %></td>
+    <td><%= link_to 'Destroy', status, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'ステータス作成', new_status_path %><br/>
+<%= link_to 'ユーザ一覧',:controller => 'users'%>

@@ -1,0 +1,23 @@
+<h1>グループ作成</h1>
+
+<% form_for(@group) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :group_name %><br />
+    <%= f.text_field :group_name %>
+  </p>
+  <p>
+    <%= f.label :default_lat %><br />
+    <%= f.text_field :default_lat %>
+  </p>
+  <p>
+    <%= f.label :default_lon %><br />
+    <%= f.text_field :default_lon %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'グループ一覧', groups_path %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  group_id: 1
+  pos_title: MyString
+  pos_explain: MyText
+  pos_lat: 1.5
+  pos_lon: 1.5
+  picture_path: MyString
+
+two:
+  group_id: 1
+  pos_title: MyString
+  pos_explain: MyText
+  pos_lat: 1.5
+  pos_lon: 1.5
+  picture_path: MyString

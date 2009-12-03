@@ -1,0 +1,33 @@
+<p>
+  <b>User:</b>
+  <%=h @status.user_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @status.status %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%=h @status.position %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%=h @status.note %>
+</p>
+
+<p>
+  <b>Now lat:</b>
+  <%=h @status.now_lat %>
+</p>
+
+<p>
+  <b>Now lon:</b>
+  <%=h @status.now_lon %>
+</p>
+
+
+<%= link_to 'Edit', edit_status_path(@status) %> |
+<%= link_to 'Back', statuses_path %>

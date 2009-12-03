@@ -1,0 +1,40 @@
+<h1>家族一覧</h1>
+
+<table border="1">
+  <tr>
+    <th>Fimily id</th>
+    <th>Group id</th>
+    <th>Family name</th>
+    <th>User</th>
+    <th>Address</th>
+    <th>Tel</th>
+    <th>Fax</th>
+    <th>Home lat</th>
+    <th>Home lon</th>
+    <th>Icon path</th>
+  </tr>
+
+<% for family in @families %>
+  <tr>
+    <td><%=h family.id %></td>
+    <td><%=h family.group_id %></td>
+    <td><%=h family.family_name %></td>
+    <td><%=h family.user_id %></td>
+    <td><%=h family.address %></td>
+    <td><%=h family.tel %></td>
+    <td><%=h family.fax %></td>
+    <td><%=h family.home_lat %></td>
+    <td><%=h family.home_lon %></td>
+    <td><%=h family.icon_path %></td>
+    <td><%= link_to 'Show', family %></td>
+    <td><%= link_to 'Edit', edit_family_path(family) %></td>
+    <td><%= link_to 'Destroy', family, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= link_to 'ユーザ作成',:controller => 'users', :action => :new, :family_id => family.id  %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '家族作成', new_family_path %><br/>
+<%= link_to 'グループ一覧',:controller => 'groups'%>

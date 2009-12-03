@@ -1,0 +1,51 @@
+<h1>ユーザ一覧</h1>
+
+<table border="1">
+  <tr>
+    <th>User id</th>
+    <th>Family id</th>
+    <th>Login</th>
+    <th>Password</th>
+    <th>Full name</th>
+    <th>Full name kana</th>
+    <th>Birthday</th>
+    <th>Blood</th>
+    <th>Sex</th>
+    <th>Tel</th>
+    <th>Mail</th>
+    <th>Job</th>
+    <th>Good field</th>
+    <th>Medical history</th>
+    <th>Icon path</th>
+  </tr>
+
+<% for user in @users %>
+  <tr>
+    <td><%=h user.id %></td>
+    <td><%=h user.family_id %></td>
+    <td><%=h user.login %></td>
+    <td><%=h user.password %></td>
+    <td><%=h user.full_name %></td>
+    <td><%=h user.full_name_kana %></td>
+    <td><%=h user.birthday %></td>
+    <td><%=h user.blood %></td>
+    <td><%=h user.sex %></td>
+    <td><%=h user.tel %></td>
+    <td><%=h user.mail %></td>
+    <td><%=h user.job %></td>
+    <td><%=h user.good_field %></td>
+    <td><%=h user.medical_history %></td>
+    <td><%=h user.icon_path %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= link_to 'ステータス作成',:controller => 'statuses', :action => :new, :user_id => user.id  %></td>
+	<td><%= link_to 'つぶやき作成',:controller => 'tweets', :action => :new, :user_id => user.id  %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'ユーザ作成', new_user_path %><br/>
+<%= link_to '家族一覧',:controller => 'families'%>

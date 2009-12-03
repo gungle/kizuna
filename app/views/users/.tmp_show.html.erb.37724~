@@ -1,0 +1,68 @@
+<p>
+  <b>Family:</b>
+  <%=h @user.family_id %>
+</p>
+
+<p>
+  <b>Login:</b>
+  <%=h @user.login %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%=h @user.password %>
+</p>
+
+<p>
+  <b>Full name:</b>
+  <%=h @user.full_name %>
+</p>
+
+<p>
+  <b>Birthday:</b>
+  <%=h @user.birthday %>
+</p>
+
+<p>
+  <b>Blood:</b>
+  <%=h @user.blood %>
+</p>
+
+<p>
+  <b>Sex:</b>
+  <%=h @user.sex %>
+</p>
+
+<p>
+  <b>Tel:</b>
+  <%=h @user.tel %>
+</p>
+
+<p>
+  <b>Mail:</b>
+  <%=h @user.mail %>
+</p>
+
+<p>
+  <b>Job:</b>
+  <%=h @user.job %>
+</p>
+
+<p>
+  <b>Good field:</b>
+  <%=h @user.good_field %>
+</p>
+
+<p>
+  <b>Medical history:</b>
+  <%=h @user.medical_history %>
+</p>
+
+<p>
+  <b>Icon path:</b>
+  <%=h @user.icon_path %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

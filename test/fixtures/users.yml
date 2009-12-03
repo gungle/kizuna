@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  family_id: 1
+  login: MyString
+  password: MyString
+  full_name: MyString
+  birthday: 2009-11-27 10:41:14
+  blood: 1
+  sex: 1
+  tel: MyString
+  mail: MyString
+  job: MyString
+  good_field: MyText
+  medical_history: MyText
+  icon_path: MyString
+
+two:
+  family_id: 1
+  login: MyString
+  password: MyString
+  full_name: MyString
+  birthday: 2009-11-27 10:41:14
+  blood: 1
+  sex: 1
+  tel: MyString
+  mail: MyString
+  job: MyString
+  good_field: MyText
+  medical_history: MyText
+  icon_path: MyString

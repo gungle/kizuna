@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  group_name: MyString
+  default_lat: 1.5
+  default_lon: 1.5
+
+two:
+  group_name: MyString
+  default_lat: 1.5
+  default_lon: 1.5

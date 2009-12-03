@@ -1,0 +1,36 @@
+<h1>Editing status</h1>
+
+<% form_for(@status) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.label :position %><br />
+    <%= f.text_field :position %>
+  </p>
+  <p>
+    <%= f.label :note %><br />
+    <%= f.text_area :note %>
+  </p>
+  <p>
+    <%= f.label :now_lat %><br />
+    <%= f.text_field :now_lat %>
+  </p>
+  <p>
+    <%= f.label :now_lon %><br />
+    <%= f.text_field :now_lon %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @status %> |
+<%= link_to 'Back', statuses_path %>
