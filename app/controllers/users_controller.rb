@@ -7,13 +7,16 @@ class UsersController < ApplicationController
     @users = Array.new
     
     if ! params[:group_id].nil?
+
       # 該当のGroupIDのユーザ一覧を取得
       group = Group.find(params[:group_id])
+
       # グループ -> 家族 -> ユーザ 取得
       group.families.each do |fa|
-          @users << fa.users
+          @users = @users + fa.users
+#          @users << fa.users
       end
-      
+
     elsif ! params[:family_id].nil?
       # 該当のFamilyIDのユーザ一覧を取得
       family = Family.find(params[:family_id])

@@ -17,6 +17,7 @@ class StatusesController < ApplicationController
           us.status[:full_name] = us.full_name           # 氏名
           us.status[:full_name_kana] = us.full_name_kana # 氏名(カナ)
           us.status[:icon_path] = us.icon_path           # iconパス。あとでURLに変換する ★
+
           @statuses << us.status
         end
       end
