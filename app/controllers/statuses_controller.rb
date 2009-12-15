@@ -120,8 +120,10 @@ class StatusesController < ApplicationController
   # PUT /statuses/1
   # PUT /statuses/1.xml
   def update
-    @status = Status.find(params[:id])
-
+    @status = Status.find_by_user_id(params[:id])
+#    @status = Status.find(params[:id])
+p params
+p @status
     respond_to do |format|
       if @status.update_attributes(params[:status])
         flash[:notice] = 'Status was successfully updated.'
