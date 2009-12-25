@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
+  
+  
   # GET /users
   # GET /users.xml
   def index
-    
+
     # 初期化
     @users = Array.new
     
@@ -13,23 +15,39 @@ class UsersController < ApplicationController
 
       # グループ -> 家族 -> ユーザ 取得
       group.families.each do |fa|
-          @users = @users + fa.users
-#          @users << fa.users
+        fa.users.each do |us|
+          us[:address] = fa.address
+          @users << us          
+        end
+#       @users = @users + fa.users
       end
 
     elsif ! params[:family_id].nil?
       # 該当のFamilyIDのユーザ一覧を取得
       family = Family.find(params[:family_id])
-      @users << family.users
+        family.users.each do |us|
+          us[:address] = family.address
+          @users << us          
+        end
+#      @users << family.users
 
     elsif ! params[:user_id].nil?
       # 該当のUserIDのユーザ一覧を取得
-      @users << User.find(params[:user_id])
+      user = User.find(params[:user_id])
+      address = user.family.address
+      user[:address] = address
+      @users << user
 
     else
       # 全ユーザ一覧を取得
-      @users = User.find(:all)
-
+      all_users = User.find(:all)
+      all_users.each do |user|
+        address = user.family.address
+        user[:address] = address
+        @users << user
+      end
+#      @users = User.find(:all)
+      
     end
   
     respond_to do |format|
@@ -39,11 +57,11 @@ class UsersController < ApplicationController
     end
     
   # エラー処理
-  rescue => ex
-    respond_to do |format|
-#      format.html # show.html.erb
-      format.xml { render :xml => '<users type="array"><results>NG</results></users>' }
-    end
+#  rescue => ex
+#    respond_to do |format|
+##      format.html # show.html.erb
+#      format.xml { render :xml => '<users type="array"><results>NG</results></users>' }
+#    end
 
   end
 

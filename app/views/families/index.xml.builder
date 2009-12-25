@@ -12,8 +12,8 @@ xml.families(:type => "array") do
       xml.home_lat(family.home_lat, :type => "float")
       xml.home_lon(family.home_lon, :type => "float")
       xml.icon_path(family.icon_path, :type => "string")
-      xml.created_at(family.created_at.strftime("%Y-%m-%dT%H:%M:%S"), :type => "datetime")    
-      xml.updated_at(family.updated_at.strftime("%Y-%m-%dT%H:%M:%S"), :type => "datetime")        
+      xml.created_at(family.created_at.strftime("%Y/%m/%d %H:%M:%S"), :type => "datetime")    
+      xml.updated_at(family.updated_at.strftime("%Y/%m/%d %H:%M:%S"), :type => "datetime")        
     end
   end
 end
