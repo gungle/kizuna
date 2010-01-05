@@ -9,6 +9,7 @@
     <th>Tweet</th>
     <th>Tweet lat</th>
     <th>Tweet lon</th>
+    <th>Children cnt</th>
     <th>Picture path</th>
   </tr>
 
@@ -21,6 +22,7 @@
     <td><%=h tweet.tweet %></td>
     <td><%=h tweet.tweet_lat %></td>
     <td><%=h tweet.tweet_lon %></td>
+    <td><%=h tweet.children_cnt %></td>
     <td><%=h tweet.picture_path %></td>
     <td><%= link_to 'Show', tweet %></td>
     <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
