@@ -9,7 +9,7 @@ class LoginsController < ApplicationController
        if !@login.nil?
          # 該当ユーザあり
          @login[:result] = "OK"
-         fmly = Family.find(:first, @login[:family_id])
+         fmly = Family.find(@login[:family_id])
          @login[:group_id] = fmly[:group_id]
        else
          # 該当ユーザなし
