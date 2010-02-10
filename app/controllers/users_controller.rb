@@ -10,18 +10,30 @@ class UsersController < ApplicationController
     
     if ! params[:group_id].nil?
 
-      # 該当のGroupIDのユーザ一覧を取得
-      group = Group.find(params[:group_id])
-
-      # グループ -> 家族 -> ユーザ 取得
-      group.families.each do |fa|
+      # ログイン済みか、公開フラグがON. (WebAccess対策)
+      if session[:public_flag].nil? || session[:public_flag] == 1
+        # 該当のGroupIDのユーザ一覧を取得
+        group = Group.find(params[:group_id])
+  
+        # グループ -> 家族 -> ユーザ 取得
+        group.families.each do |fa|
+          fa.users.each do |us|
+            us[:address] = fa.address
+            @users << us
+          end
+        end
+        
+      # 家族非公開。自分の家族情報のみ復帰
+      else
+        # 該当の家族を検索
+        fa = Family.find(session[:familly_id])
         fa.users.each do |us|
           us[:address] = fa.address
-          @users << us          
+          @users << us
         end
-#       @users = @users + fa.users
+        
       end
-
+      
     elsif ! params[:family_id].nil?
       # 該当のFamilyIDのユーザ一覧を取得
       family = Family.find(params[:family_id])
@@ -29,14 +41,24 @@ class UsersController < ApplicationController
           us[:address] = family.address
           @users << us          
         end
-#      @users << family.users
 
     elsif ! params[:user_id].nil?
       # 該当のUserIDのユーザ一覧を取得
       user = User.find(params[:user_id])
-      address = user.family.address
-      user[:address] = address
-      @users << user
+
+      # ログイン済みか、公開フラグがON. (WebAccess対策)
+      if session[:public_flag].nil? || session[:public_flag] == 1 || session[:family_id] == user[:family_id]
+        address = user.family.address
+        user[:address] = address
+        @users << user
+      
+        # 家族非公開。自分の家族情報のみ復帰
+      else
+        respond_to do |format|
+          format.xml { render :xml => '<users type="array"><results>NG</results><message>Access Deny.</message></users>' }
+        end
+        return 1
+      end
 
     else
       # 全ユーザ一覧を取得
@@ -46,22 +68,20 @@ class UsersController < ApplicationController
         user[:address] = address
         @users << user
       end
-#      @users = User.find(:all)
       
     end
   
     respond_to do |format|
       format.html # index.html.erb
-#      format.xml  { render :xml => @users }
       format.xml  { render :layout=>false}
     end
     
-  # エラー処理
-#  rescue => ex
-#    respond_to do |format|
-##      format.html # show.html.erb
-#      format.xml { render :xml => '<users type="array"><results>NG</results></users>' }
-#    end
+    # エラー処理
+    rescue => ex
+      respond_to do |format|
+#      format.html # show.html.erb
+      format.xml { render :xml => "<users type='array'><results>NG</results><message>#{ex.message}</message></users>" }
+    end
 
   end
 

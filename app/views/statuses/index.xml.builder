@@ -8,6 +8,7 @@ xml.statuses(:type => "array") do
   	  xml.full_name_kana(status.full_name_kana, :type => "string")
   	  xml.position(position(status.position), :type => "integer")
   	  xml.status(status(status.status), :type => "integer")
+      xml.public_flag(status.public_flag, :type => "integer")
   	  xml.now_lat(status.now_lat, :type => "float")
   	  xml.now_lon(status.now_lon, :type => "float")
   	  xml.note(status.note, :type => "text")

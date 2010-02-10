@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091203055447) do
+ActiveRecord::Schema.define(:version => 20100202051958) do
 
   create_table "families", :force => true do |t|
     t.integer  "group_id",    :null => false
@@ -26,11 +26,12 @@ ActiveRecord::Schema.define(:version => 20091203055447) do
   end
 
   create_table "groups", :force => true do |t|
-    t.string   "group_name",  :null => false
+    t.string   "group_name",                 :null => false
     t.float    "default_lat"
     t.float    "default_lon"
-    t.datetime "created_at",  :null => false
+    t.datetime "created_at",                 :null => false
     t.datetime "updated_at"
+    t.integer  "public_flag", :default => 0, :null => false
   end
 
   create_table "maps", :force => true do |t|
@@ -44,6 +45,9 @@ ActiveRecord::Schema.define(:version => 20091203055447) do
     t.datetime "updated_at"
     t.integer  "pos_kind",     :default => 0, :null => false
   end
+
+# Could not dump table "sqlite_stat1" because of following StandardError
+#   Unknown type '' for column 'tbl'
 
   create_table "statuses", :force => true do |t|
     t.integer  "user_id",                   :null => false
@@ -63,10 +67,10 @@ ActiveRecord::Schema.define(:version => 20091203055447) do
     t.float    "tweet_lat"
     t.float    "tweet_lon"
     t.string   "picture_path"
-    t.integer  "children_cnt", :default => 0, :null => false
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at"
     t.integer  "group_id",     :default => 0, :null => false
+    t.integer  "children_cnt", :default => 0, :null => false
   end
 
   create_table "users", :force => true do |t|

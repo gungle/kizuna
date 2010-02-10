@@ -17,7 +17,11 @@ class StatusesController < ApplicationController
           us.status[:full_name] = us.full_name           # 氏名
           us.status[:full_name_kana] = us.full_name_kana # 氏名(カナ)
           us.status[:icon_path] = us.icon_path           # iconパス。あとでURLに変換する ★
-
+          if ! session[:public_flag].nil? && session[:public_flag] == 0 && fa[:id] != session[:family_id]
+            us.status[:public_flag] = 0  # 非公開
+          else
+            us.status[:public_flag] = 1  # 公開
+          end
           @statuses << us.status
         end
       end
@@ -28,9 +32,9 @@ class StatusesController < ApplicationController
       # 家族 -> ユーザ -> 状況 取得
       family.users.each do |us|
         # 必要なその他の情報をハッシュに入れて渡す
-        us.status[:full_name] = us.full_name           # 氏名
-        us.status[:full_name_kana] = us.full_name_kana # 氏名(カナ)
-        us.status[:icon_path] = us.icon_path           # iconパス。あとでURLに変換する ★
+        us.status[:full_name] = us.full_name            # 氏名
+        us.status[:full_name_kana] = us.full_name_kana  # 氏名(カナ)
+        us.status[:icon_path] = us.icon_path            # iconパス。あとでURLに変換する ★
         @statuses << us.status
       end
 
@@ -42,6 +46,11 @@ class StatusesController < ApplicationController
       user.status[:full_name] = user.full_name           # 氏名
       user.status[:full_name_kana] = user.full_name_kana # 氏名(カナ)
       user.status[:icon_path] = user.icon_path           # iconパス。あとでURLに変換する ★
+      if ! session[:public_flag].nil? && session[:public_flag] == 0 && user.family_id != session[:family_id]
+        user.status[:public_flag] = 0  # 非公開
+      else
+        user.status[:public_flag] = 1  # 公開
+      end
       @statuses << user.status
 
     else
@@ -58,11 +67,11 @@ class StatusesController < ApplicationController
     end
     
   # エラー処理
-  rescue => ex
-    respond_to do |format|
-#      format.html # show.html.erb
-      format.xml { render :xml => '<statuses type="array"><results>NG</results></statuses>' }
-    end
+#  rescue => ex
+#    respond_to do |format|
+##      format.html # show.html.erb
+#      format.xml { render :xml => '<statuses type="array"><results>NG</results></statuses>' }
+#    end
   end
 
   # GET /statuses/1

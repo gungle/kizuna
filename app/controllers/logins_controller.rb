@@ -4,20 +4,29 @@ class LoginsController < ApplicationController
   # GET /logins.xml
   def index
  
+    # ログインIDとパスワードにて認証（いずれ、POSTに変更する予定)
     if !params[:login].nil? && !params[:password].nil?    
        @login = User.find_by_login_and_password(params[:login], params[:password])
-       if !@login.nil?
-         # 該当ユーザあり
-         @login[:result] = "OK"
-         fmly = Family.find(@login[:family_id])
-         @login[:group_id] = fmly[:group_id]
-       else
-         # 該当ユーザなし
-         @login = User.new
-         @login[:result] = "NG"
-       end
+    end
+  
+    if !@login.nil?
+       # 該当ユーザあり
+       @login[:result] = "OK"
+       fmly = Family.find(@login[:family_id])
+       @login[:group_id] = fmly[:group_id]
+       
+       # セッションに格納
+       session[:group_id] = fmly[:group_id]
+       session[:family_id] = @login[:family_id]
+       session[:user_id] = @login[:id]
+       session[:public_flag] = Group.find(fmly[:group_id])[:public_flag] # 公開・未公開フラグを設定 (0:未公開、1:公開)
+
+    else
+        @login = User.new
+        @login[:result] = "NG"
+        
+    end
     
-    end 
 
     respond_to do |format|
       format.html # index.html.erb
