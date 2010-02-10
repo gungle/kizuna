@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       # 家族非公開。自分の家族情報のみ復帰
       else
         # 該当の家族を検索
-        fa = Family.find(session[:familly_id])
+        fa = Family.find(session[:family_id])
         fa.users.each do |us|
           us[:address] = fa.address
           @users << us
