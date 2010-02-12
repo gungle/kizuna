@@ -35,17 +35,35 @@ module ApplicationHelper
     when 0
       "未設定"
     when 1
-      "避難済み"
+      "安否不明"
     when 2
-      "避難中"
+      "ケガ"
     when 3
-      "ヘルプ"
+      "閉じ込み"
     when 4
-      "救助活動中"
+      "死亡"
     else # 99
       "不明"
     end    
   end
+  
+## ステータス
+#  def status(a)
+#    case a
+#    when 0
+#      "未設定"
+#    when 1
+#      "避難済み"
+#    when 2
+#      "避難中"
+#    when 3
+#      "ヘルプ"
+#    when 4
+#      "救助活動中"
+#    else # 99
+#      "不明"
+#    end    
+#  end
 
   # 立場
   def position(a)
