@@ -18,6 +18,8 @@ class UsersController < ApplicationController
         # グループ -> 家族 -> ユーザ 取得
         group.families.each do |fa|
           fa.users.each do |us|
+            # 年齢を復帰 add by 2010.02.14
+            us[:age] = 2010 - us[:birthday].strftime("%Y").to_i
             us[:address] = fa.address
             @users << us
           end
@@ -28,6 +30,8 @@ class UsersController < ApplicationController
         # 該当の家族を検索
         fa = Family.find(session[:family_id])
         fa.users.each do |us|
+          # 年齢を復帰 add by 2010.02.14
+          us[:age] = 2010 - us[:birthday].strftime("%Y").to_i
           us[:address] = fa.address
           @users << us
         end
@@ -38,6 +42,8 @@ class UsersController < ApplicationController
       # 該当のFamilyIDのユーザ一覧を取得
       family = Family.find(params[:family_id])
         family.users.each do |us|
+          # 年齢を復帰 add by 2010.02.14
+          us[:age] = 2010 - us[:birthday].strftime("%Y").to_i
           us[:address] = family.address
           @users << us          
         end
@@ -45,6 +51,9 @@ class UsersController < ApplicationController
     elsif ! params[:user_id].nil?
       # 該当のUserIDのユーザ一覧を取得
       user = User.find(params[:user_id])
+
+      # 年齢を復帰 add by 2010.02.14
+      user[:age] = 2010 - user[:birthday].strftime("%Y").to_i
 
       # ログイン済みか、公開フラグがON. (WebAccess対策)
       if session[:public_flag].nil? || session[:public_flag] == 1 || session[:family_id] == user[:family_id]

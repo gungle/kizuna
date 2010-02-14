@@ -8,6 +8,7 @@ xml.users(:type => "array") do
       xml.full_name_kana(user.full_name_kana, :type => "string")
       xml.address(user.address, :type => "string")
       xml.birthday(user.birthday, :type => "date")
+      xml.age(user.age, :type => "integer")
       xml.blood(blood(user.blood), :type => "integer")
       xml.sex(sex(user.sex), :type => "integer")
       xml.tel(user.tel, :type => "string")
