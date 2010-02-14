@@ -37,11 +37,11 @@ module ApplicationHelper
     when 1
       "安否不明"
     when 2
-      "ケガ"
+      "大ケガ"
     when 3
-      "閉じ込み"
+      "閉じ込め"
     when 4
-      "死亡"
+      "意識不明"
     else # 99
       "不明"
     end    
